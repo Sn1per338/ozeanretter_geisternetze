@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="j_idt2">
+    <title>Geisternetze</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .card-modern {
+            border: none;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 12px;
+        }
+
+        .card-modern:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .card-modern img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .btn-modern {
+            background-color: #0069d9;
+            color: white;
+            transition: background-color 0.3s;
+            border-radius: 25px;
+        }
+
+        .btn-modern:hover {
+            background-color: #0053ba;
+        }
+        
+        .btn-login {
+		    background-color: #28a745;
+		    color: white;
+		    border-radius: 25px;
+		    transition: background-color 0.3s;
+		}
+		
+		.btn-login:hover {
+		    background-color: #218838;
+		}
+		
+		.hero-header {
+		    background: linear-gradient(rgba(0, 105, 217, 0.7), rgba(0, 105, 217, 0.7)),
+		                url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80') center/cover no-repeat;
+		    height: 300px;
+		    border-bottom-left-radius: 50px;
+		    border-bottom-right-radius: 50px;
+		    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+		}
+
+		
+		.hero-header .overlay {
+		    position: absolute;
+		    top: 0; left: 0; right: 0; bottom: 0;
+		    background: rgba(0, 0, 0, 0.3);
+		    z-index: 1;
+		    border-bottom-left-radius: 50px;
+		    border-bottom-right-radius: 50px;
+		}
+		
+		.hero-header .container {
+		    position: relative;
+		    z-index: 2;
+		}
+		
+
+    </style></head><body class="bg-light">
+
+    <!-- Hero / Header -->
+    <header class="hero-header text-white mb-5 position-relative">
+	    <!-- Hintergrund-Overlay -->
+	    <div class="overlay"></div>
+	
+	    <!-- Login Button -->
+	    <a href="login.xhtml" class="btn btn-login position-absolute top-0 end-0 m-4">
+	        Login
+	    </a>
+	
+	    <!-- Titelbereich -->
+	    <div class="container text-center py-5">
+	        <h1 class="display-3 fw-bold">Geisternetze bergen - Natur schützen</h1>
+	        <p class="lead">Gemeinsam gegen die unsichtbare Bedrohung unserer Meere</p>
+	    </div>
+	</header>
+
+
+    <!-- Hauptinhalt -->
+    <main class="container mb-5">
+        <div class="row g-4">
+
+            <div class="col-md-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Was sind Geisternetze?</h5>
+                        <p class="card-text">
+                            Jahr für Jahr landen Millionen Tonnen an Fischereiausrüstung in den Weltmeeren – und ein erheblicher Teil davon besteht aus sogenannten Geisternetzen.
+                            Dabei handelt es sich um herrenlose, verlorene oder absichtlich entsorgte Fischernetze, die weiterhin unkontrolliert im Wasser treiben.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Gefahren für die Tierwelt</h5>
+                        <p class="card-text">
+                            Diese Netze stellen eine ernsthafte Gefahr für die marine Tierwelt dar: Schildkröten, Delfine, Wale und unzählige Fischarten verfangen sich in ihnen und verenden qualvoll.
+                            Auch Korallenriffe und der Meeresboden werden durch diese Netze nachhaltig geschädigt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Lösungsansätze &amp; Technologien</h5>
+                        <p class="card-text">
+                            Organisationen weltweit engagieren sich für die Bergung von Geisternetzen und arbeiten an nachhaltigen Lösungen. GPS-Tracking, Recycling-Systeme und Aufklärungskampagnen sollen das Problem an der Wurzel bekämpfen und unsere Meere schützen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Moderne Cards mit Verlinkungen -->
+        <div class="row g-4 mt-5">
+            <div class="col-md-4">
+                <div class="card card-modern">
+                    <img src="https://picsum.photos/300/200?random=1" alt="Meeresschutz" />
+                    <div class="card-body text-center">
+                        <a href="geisternetze_melden.xhtml" class="btn btn-modern">Geisternetz melden</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-modern">
+                    <img src="https://picsum.photos/300/200?random=2" alt="Technologien" />
+                    <div class="card-body text-center">
+                        <a href="geisternetze_bergen.xhtml" class="btn btn-modern">Bergung eines Geisternetzes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-modern">
+                    <img src="https://picsum.photos/300/200?random=3" alt="Projekte" />
+                    <div class="card-body text-center">
+                        <a href="geisternetze_karte.xhtml" class="btn btn-modern">Übersicht aller Geisternetze</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">© 2025 Geisternetze Projekt – Gemeinsam für saubere Ozeane</p>
+    </footer></body>
+</html>

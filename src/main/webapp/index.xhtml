@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+    <title>Geisternetze</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <h:outputStylesheet library="css" name="style.css" />
+</h:head>
+
+<h:body class="bg-light">
+
+    <header class="hero-header text-white mb-5 position-relative">
+    <div class="overlay"></div>
+
+    <div class="container position-relative z-2">
+        <div class="d-flex align-items-center justify-content-between mb-3 mb-md-0">
+
+            <h:link outcome="index.xhtml" style="text-decoration: none;">
+                <div class="logo_ozeanretter me-3">
+                    Ozean-Retter e.V.
+                </div>
+            </h:link>
+
+            <div class="login-container">
+                <h:link outcome="login" value="Login" styleClass="btn-login" />
+            </div>
+        </div>
+
+        <div class="text-center py-5">
+            <h1 class="display-3 fw-bold">Geisternetze bergen – Natur schützen</h1>
+            <p class="lead">Gemeinsam gegen die unsichtbare Bedrohung unserer Meere</p>
+        </div>
+    </div>
+</header>
+
+    <main class="container mb-5">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Was sind Geisternetze?</h5>
+                        <p class="card-text">
+                            Jahr für Jahr landen Millionen Tonnen an Fischereiausrüstung in den Weltmeeren – und ein erheblicher Teil davon besteht aus sogenannten Geisternetzen.
+                            Dabei handelt es sich um herrenlose, verlorene oder absichtlich entsorgte Fischernetze, die weiterhin unkontrolliert im Wasser treiben.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Gefahren für die Tierwelt</h5>
+                        <p class="card-text">
+                            Diese Netze stellen eine ernsthafte Gefahr für die marine Tierwelt dar: Schildkröten, Delfine, Wale und unzählige Fischarten verfangen sich in ihnen und verenden qualvoll.
+                            Auch Korallenriffe und der Meeresboden werden durch diese Netze nachhaltig geschädigt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Lösungsansätze &amp; Technologien</h5>
+                        <p class="card-text">
+                            Organisationen weltweit engagieren sich für die Bergung von Geisternetzen und arbeiten an nachhaltigen Lösungen. GPS-Tracking, Recycling-Systeme und Aufklärungskampagnen sollen das Problem an der Wurzel bekämpfen und unsere Meere schützen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mt-5">
+            <div class="col-md-4">
+                <div class="card card-modern">
+                    <img src="https://picsum.photos/300/200?random=1" alt="Meeresschutz" />
+                    <div class="card-body text-center">
+                        <a href="geisternetze_melden.xhtml" class="btn btn-modern">Geisternetz anonym melden</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-modern">
+                    <img src="https://picsum.photos/300/200?random=2" alt="Technologien" />
+                    <div class="card-body text-center">
+                        <a href="dashboard.xhtml" class="btn btn-modern">Mein Bereich</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-modern">
+                    <img src="https://picsum.photos/300/200?random=3" alt="Projekte" />
+                    <div class="card-body text-center">
+                        <a href="geisternetze_karte.xhtml" class="btn btn-modern">Grafische Übersicht aller Geisternetze</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">© 2025 Geisternetze Projekt – Gemeinsam für saubere Ozeane</p>
+    </footer>
+
+</h:body>
+</html>

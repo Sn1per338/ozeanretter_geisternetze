@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Geisternetz melden – Angemeldeter Nutzer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .card-modern {
+            border: none;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 12px;
+        }
+        .card-modern:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .btn-modern {
+            background-color: #0069d9;
+            color: white;
+            transition: background-color 0.3s;
+            border-radius: 25px;
+        }
+        .btn-modern:hover {
+            background-color: #0053ba;
+        }
+    </style>
+</h:head>
+
+<h:body class="bg-light">
+
+    <!-- Zugangsschutz -->
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{userSessionBean.redirectIfNotLoggedIn}" />
+    </f:metadata>
+
+    <!-- Header -->
+    <header class="bg-primary text-white py-4 mb-5">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h2 class="mb-0">Geisternetz melden</h2>
+            <h:form>
+                <h:commandButton value="Logout" action="#{userSessionBean.logout}" styleClass="btn btn-light btn-sm" />
+            </h:form>
+        </div>
+    </header>
+
+    <!-- Formular -->
+    <main class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm card-modern">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4">Meldung eines Geisternetzes durch #{userSessionBean.username}</h5>
+
+                        <h:form>
+
+                            <!-- Standort Längengrad -->
+                            <div class="mb-3">
+                                <label for="laengengrad" class="form-label">Standort – Längengrad</label>
+                                <h:inputText id="laengengrad" value="#{netzBean.standortLaengengrad}" required="true"
+                                             styleClass="form-control">
+                                    <f:passThroughAttribute name="placeholder" value="z.B. 10.1234" />
+                                </h:inputText>
+                                <h:message for="laengengrad" styleClass="text-danger" />
+                            </div>
+
+                            <!-- Standort Breitengrad -->
+                            <div class="mb-3">
+                                <label for="breitengrad" class="form-label">Standort – Breitengrad</label>
+                                <h:inputText id="breitengrad" value="#{netzBean.standortBreitengrad}" required="true"
+                                             styleClass="form-control">
+                                    <f:passThroughAttribute name="placeholder" value="z.B. 54.3210" />
+                                </h:inputText>
+                                <h:message for="breitengrad" styleClass="text-danger" />
+                            </div>
+
+                            <!-- Größe -->
+                            <div class="mb-3">
+                                <label for="groesse" class="form-label">Größe (geschätzt in m²)</label>
+                                <h:inputText id="groesse" value="#{netzBean.groesseInQuadratmeter}" required="true"
+                                             styleClass="form-control" />
+                                <h:message for="groesse" styleClass="text-danger" />
+                            </div>
+
+                            <!-- Submit -->
+                            <div class="d-grid">
+                                <h:commandButton value="Geisternetz melden"
+                                                 action="#{netzBean.submit}"
+                                                 styleClass="btn btn-modern btn-lg" />
+                            </div>
+
+                            <!-- Erfolgsmeldung -->
+                            <h:panelGroup rendered="#{not empty netzBean.successMessage}">
+                                <div class="alert alert-success mt-4 text-center">
+                                    #{netzBean.successMessage}
+                                </div>
+                            </h:panelGroup>
+
+                            <!-- Validierungsfehler -->
+                            <h:messages styleClass="text-danger mt-3" layout="table" />
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p class="mb-0">© 2025 Geisternetze Projekt – Gemeinsam für saubere Ozeane</p>
+    </footer>
+
+</h:body>
+</html>

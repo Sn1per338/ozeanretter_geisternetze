@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>Geisternetz melden – Geisternetze</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <h:outputStylesheet library="css" name="style.css" />
+</h:head>
+
+<h:body class="bg-light">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{userSessionBean.redirectIfNotLoggedIn}" />
+    </f:metadata>
+    
+    <header class="bg-primary text-white py-5 mb-5">
+	    <div class="container">
+	        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+	            <div class="d-flex align-items-center mb-3 mb-md-0">
+		    		<h:link outcome="index.xhtml" style="text-decoration: none;">
+				        <div class="logo_ozeanretter me-3">
+				            Ozean-Retter e.V.
+				        </div>
+				    </h:link>
+			    <div>
+			        <h1 class="display-5 fw-bold mb-1">Geisternetz melden</h1>
+			        <p class="lead mb-0">Hilf mit, Geisternetze aus unseren Meeren zu entfernen!</p>
+			    </div>
+			</div>
+	        </div>
+	    </div>
+	</header>
+    <div class="container mb-4">
+        <h:form>
+            <p:menubar>
+                <p:submenu label="Navigation" icon="pi pi-compass">
+                    <p:menuitem value="Mein Bereich" url="dashboard.xhtml" icon="pi pi-home" />
+                    <p:menuitem value="Netz melden" url="geisternetzmeldung_angemeldet.xhtml" icon="pi pi-plus-circle" />
+                    <p:menuitem value="Netz verwalten" url="geisternetze_verwalten.xhtml" icon="pi pi-cog" />
+                    <p:menuitem value="Netze auf Karte" url="geisternetze_karte.xhtml" icon="pi pi-map" />
+                </p:submenu>
+                <p:submenu label="Benutzer" icon="pi pi-user">
+                    <p:menuitem value="Logout" action="#{userSessionBean.logout}" icon="pi pi-sign-out" />
+                </p:submenu>
+            </p:menubar>
+        </h:form>
+    </div>
+
+    <main class="container">
+        <div class="alert alert-success text-center">
+            Willkommen, #{userSessionBean.username}! Hier kannst Du dein Geisternetz melden.
+        </div>
+
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4">Geisternetz erfassen</h5>
+
+                        <h:form>
+                            <div class="mb-3">
+                                <label for="laengengrad" class="form-label">Standort – Längengrad</label>
+                                <h:inputText id="laengengrad" value="#{netzBean.standortLaengengrad}" required="true"
+                                             styleClass="form-control">
+                                    <f:passThroughAttribute name="placeholder" value="z.B. 10.1234" />
+                                </h:inputText>
+                                <h:message for="laengengrad" styleClass="text-danger" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="breitengrad" class="form-label">Standort – Breitengrad</label>
+                                <h:inputText id="breitengrad" value="#{netzBean.standortBreitengrad}" required="true"
+                                             styleClass="form-control">
+                                    <f:passThroughAttribute name="placeholder" value="z.B. 54.3210" />
+                                </h:inputText>
+                                <h:message for="breitengrad" styleClass="text-danger" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="groesse" class="form-label">Größe (geschätzt in m²)</label>
+                                <h:inputText id="groesse" value="#{netzBean.groesseInQuadratmeter}" required="true"
+                                             styleClass="form-control" />
+                                <h:message for="groesse" styleClass="text-danger" />
+                            </div>
+
+                            <div class="d-grid">
+                                <h:commandButton value="Geisternetz melden" action="#{netzBean.submit}"
+                                                 styleClass="btn btn-primary btn-lg" />
+                            </div>
+
+                            <h:panelGroup rendered="#{not empty netzBean.successMessage}">
+                                <div class="alert alert-success mt-4 text-center">
+                                    #{netzBean.successMessage}
+                                </div>
+                            </h:panelGroup>
+
+                            <h:messages styleClass="text-danger mt-3" layout="table" />
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p class="mb-0">© 2025 Geisternetze Projekt – Gemeinsam gegen Meeresverschmutzung</p>
+    </footer>
+
+</h:body>
+</html>
